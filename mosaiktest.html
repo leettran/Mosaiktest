@@ -1,0 +1,611 @@
+<!--
+Within this html page the Mosaiktest task of the Testbatterie will be presented.
+This html page should contain the whole process of this task as a collection of html5 pages.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Testbatterie-Aufgabe: Mosaiktest</title>
+
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.0b1.min.css"/>       
+        <link rel="stylesheet" href="css/style.css" media="screen and (orientation: landscape)" type="text/css">  
+
+        <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.0rc2.min.js"></script>
+        <script type="text/javascript" src="js/jstorage.js"></script>
+        <script type="text/javascript" src="js/mosaiktestScript.js"></script>
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    </head>
+
+
+
+
+    <body>
+
+        <!--startpage for neurocare testbatterie with task: Mosaiktest-->
+        <div data-role="page" id="mosaiktestStart" data-dom-cache=true class="startPage" >
+
+
+            <div data-role="content">
+
+                <div class="testname">Aufgabe<br>Mosaiktest</div>
+
+
+
+            </div>
+
+            <!--script used to show start page for few seconds and the to switch to intro page-->
+            <script type="text/javascript">
+
+                $(document).delegate('#mosaiktestStart', 'pageshow', function () {
+
+                    function showJustForWhile() {
+                        setTimeout(function () {
+                            $.mobile.changePage('#mosaiktestIntro', {transition: "flip"});
+                        }, 4000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+
+        </div> 
+
+
+        <!--intro page for neurocare testbatterie containing a small introduction to the task bildergeschichte-->
+        <div data-role="page" id="mosaiktestIntro" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+                        Gleich sehen Sie ein schwarz-weißes Muster, das Sie nachbauen sollen. Zum Bau stehen Ihnen verschiedene Bausteine zur Verfügung,
+                        wobei nicht alle davon passend sind.
+
+
+                    </p>
+                </center>
+
+
+                <!--only for tests! later uncomment the first line!-->
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="onShowDemo();"/>
+                <!--<image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="startPicturesStoryTask();"/>-->
+            </div>
+
+
+        </div> 
+
+
+
+
+        <!--demo page for neurocare testbatterie containing a demonstration example to the task bildergeschichte-->
+        <div data-role="page" id="mosaiktestDemo1" data-dom-cache=true class="whitePage" >
+
+            <div data-role="content">
+
+                <h1 class="hintText"> Beispiel: </br>  folgendes Muster soll nachgebaut werden </h1>
+
+                <div style="position: absolute; top: 30%; left: 10%; right: 10%;">
+
+                    <table class="tableWithImagesDemo" style="border-spacing: 0; border-collapse: collapse;" cellspacing="0">
+
+                        <tr class="contentRow"> 
+
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile1.png"/>   </td>
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile2.png"/>   </td> 
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#mosaiktestDemo1', 'pageshow', function () {
+
+                    function showJustForWhile() {
+                        setTimeout(function () {
+                            $.mobile.changePage('#mosaiktestDemo2', {transition: "flip"});
+
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div> 
+
+
+        <!--demo page for neurocare testbatterie containing a demonstration example to the task bildergeschichte-->
+        <div data-role="page" id="mosaiktestDemo2" data-dom-cache=true class="whitePage" >
+
+            <div data-role="content">
+
+                <h1 class="hintText"> Folgende Bausteine stehen Ihnen dafür zur Verfügung </h1>
+
+                <div style="position: absolute; top: 30%; left: 10%; right: 10%;">
+
+                    <table class="tableWithImagesDemo">
+
+                        <tr class="contentRow"> 
+
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile1.png"/>   </td>
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile2.png"/>   </td> 
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile3.png"/>   </td>
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile4.png"/>   </td> 
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#mosaiktestDemo2', 'pageshow', function () {
+
+                    function showJustForWhile() {
+                        setTimeout(function () {
+                            $.mobile.changePage('#mosaiktestDemo3', {transition: "none"});
+
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div> 
+
+
+
+
+
+        <!--demo page for neurocare testbatterie containing a demonstration example to the task bildergeschichte-->
+        <div data-role="page" id="mosaiktestDemo3" data-dom-cache=true class="whitePage" >
+
+            <div data-role="content">
+
+
+                <div class="bricksDiv">
+
+                    <h3>  Ihre Bausteine </h3>
+
+                    <table class="tableWithImagesDemo">
+
+                        <tr class="contentRow"> 
+
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile1.png"/>   </td>
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile2.png"/>   </td> 
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile3.png"/>   </td>
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile4.png"/>   </td> 
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+                <div class="modelDiv"> 
+
+                    <h3>  Muster </h3>
+
+                    <table class="tableWithImagesDemo" style="border-spacing: 0; border-collapse: collapse;" cellspacing="0">
+
+                        <tr class="contentRow"> 
+
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile1.png"/>   </td>
+                            <td class="origFieldDemo"> <image  src="css\images\bricks\demoTile2.png"/>   </td> 
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+                <div class="constructionDiv"> 
+
+                    <h3>  Nachbau </h3>
+
+                    <table class="tableWithImagesDemo" style="border-spacing: 0; border-collapse: collapse;" cellspacing="0">
+
+                        <tr class="contentRow"> 
+
+                            <td class="origFieldDemo" style="border:1px solid black;">  </td>
+                            <td class="origFieldDemo" style="border:1px solid black;">   </td> 
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+
+                <div class="buttonsDiv">
+
+                    <table class="buttonsTable">  
+
+                        <tr class="buttonsRow"> 
+
+                            <td class="buttonsField"> <image src="css\images\btns-bg\bt-nein.png" class="noButton"/> </td>
+                            <td class="buttonsField"> <image src="css\images\btns-bg\bt-ja.png" class="yesButton" />  </td> 
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#mosaiktestDemo3', 'pageshow', function () {
+
+                    function showJustForWhile() {
+                        setTimeout(function () {
+                            $.mobile.changePage('#mosaiktestDemoIntro', {transition: "flip"});
+
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+
+        <!--intro page for neurocare testbatterie containing a small introduction to the task bildergeschichte-->
+        <div data-role="page" id="mosaiktestDemoIntro" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+
+                        Wählen Sie einen Baustein durch Antippen aus, danach wählen Sie das Feld, in das Sie den Baustein setzen wollen. 
+                        Wenn Sie einen Baustein wieder entfernen wollen, tippen Sie diesen Baustein an und drücken Sie anschließend auf „Löschen“. 
+                        Wenn Sie ein Muster fertig gebaut haben, drücken Sie auf „Weiter“. 
+
+
+                    </p>
+                </center>
+
+
+                <!--only for tests! later uncomment the first line!-->
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="onShowActiveDemo();"/>
+
+            </div>
+
+
+        </div>
+
+
+        <!--demo page for neurocare testbatterie containing a demonstration example to the task bildergeschichte-->
+        <div data-role="page" id="mosaiktestDemo4" data-dom-cache=true class="whitePage" >
+
+            <div data-role="content">
+
+
+                <div class="bricksDiv">
+
+
+                    <table class="tableWithImagesDemo">
+
+                        <tr class="contentRow"> 
+
+                            <td class="origFieldDemo" id="demoBrick2"> <image src="css\images\bricks\demoTile1.png"/>   </td>
+                            <td class="origFieldDemo" id="demoBrick1" >
+                                <image id="brickToMove1" style="display: block;" src="css\images\bricks\demoTile2.png"/>                               
+                            </td> 
+                            <td class="origFieldDemo"> <image style="display: block;" src="css\images\bricks\demoTile3.png"/>   </td>
+                            <td class="origFieldDemo"> <image style="display: block;" src="css\images\bricks\demoTile4.png"/>   </td> 
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+                <div class="modelDiv"> 
+
+
+                    <table class="tableWithImagesDemo" style="border-spacing: 0; border-collapse: collapse;" cellspacing="0">
+
+                        <tr class="contentRow"> 
+
+                            <td class="origFieldDemo"> <image style="display: block;" src="css\images\bricks\demoTile1.png"/>   </td>
+                            <td class="origFieldDemo"> <image style="display: block;" src="css\images\bricks\demoTile2.png"/>   </td> 
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+                <div class="constructionDiv"> 
+
+
+                    <table class="tableWithImagesDemo" style="border-spacing: 0; border-collapse: collapse;" cellspacing="0">
+
+                        <tr class="contentRow"> 
+
+                            <td class="targetcell" id="demoTargetcell1">  </td>
+                            <td class="targetcell" id="demoTargetcell2">   </td> 
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+
+                <div class="buttonsDiv">
+
+                    <table class="buttonsTable">  
+
+                        <tr class="buttonsRow"> 
+
+                            <td class="buttonsField"> <image src="css\images\btns-bg\bt-nein.png" id="deleteBtn1" class="noButton"/> </td>
+                            <td class="buttonsField"> <image src="css\images\btns-bg\bt-ja.png" id="okBtn1" class="yesButton" />  </td> 
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="infoDiv" id="infoBalloon" >
+
+                    
+
+                </div>
+
+
+                <image src="css\images\hand.png" id="demoHand1" style="position: absolute;top: 35%;left: 10%;z-index: 1000;"/>
+
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#mosaiktestDemo4', 'pageshow', function () {
+                    
+                    
+                    
+                    // select brick
+                    function selectElement(elementID,selectionClassName,delay){
+                        
+                        setTimeout(function () {
+                           
+                        $("#"+elementID).attr("class", selectionClassName);
+                            
+                        },delay);
+                    }
+                    
+                    // move demo hand
+                    function moveDemohand(top,left,handID,moveDuration,delay,callback){
+                        
+                        setTimeout(function () {
+                            
+                          $("#"+handID).animate({
+                        top: top + '%',
+                        left: left + '%'
+
+                    }, moveDuration, function () {
+                        callback;
+                    });   
+                            
+                            
+                        },delay);
+                        
+                    }
+                    
+                    // clone image to cell
+                    function cloneImageTo(imageOriginID,targetCellID,delay){
+                        
+                        setTimeout(function () {
+                            
+                            $("#"+imageOriginID).children('img').clone().appendTo("#"+targetCellID);
+                            
+                        },delay);
+                        
+                    }
+                    
+                    // show div info
+                    function showInfo(infoDivID,instruction,visibility,delay){
+                        
+                       
+                                              
+                        setTimeout(function () {
+                                                                                   
+                            $("#"+infoDivID).css("visibility", visibility);
+                            $("#"+infoDivID).html(instruction);
+                            
+                        },delay);
+                        
+                    }
+                    
+                    // remove brick from cell
+                    function removeBrickFrom(targetCellID,delay){
+                        
+                         setTimeout(function () {
+                            
+                            $("#"+targetCellID).children('img').remove();
+                            
+                        },delay);
+                        
+                    }
+                    
+                    // simulate click on given button
+                    function simulateClick(buttonID,clickDuration,delay,callback){
+                        
+                      
+                         setTimeout(function () {
+                            
+                            $("#"+buttonID).css("margin-top", "5px");
+                            
+                        },delay);
+                        
+                        // reset button margins
+                        setTimeout(function () {
+                            
+                            $("#"+buttonID).css("margin-top", "1px");
+                            
+                        },delay+clickDuration);
+                        
+                    }
+                    
+                    
+                    // switch to specific page
+                    function goToPage(pageID, delay){
+                        
+                        setTimeout(function () {
+                            
+                          $.mobile.changePage('#'+pageID, {transition: "flip"});  
+                            
+                        },delay);
+                        
+                    }
+                    
+                    
+                    
+                    // 1. move hand to brick
+                    moveDemohand(15,40,"demoHand1",2000,1000,selectElement("demoBrick1","selectedTile",3100));
+                    // 2. move hand to wrong terget cell
+                    moveDemohand(55,75,"demoHand1",2000,4000,selectElement("demoTargetcell1","selectedTile",6100));
+                    // 3. clone image to wrong cell
+                    cloneImageTo("demoBrick1","demoTargetcell1",6500);
+                    // 4. deselect brick and cell
+                    selectElement("demoBrick1","origFieldDemo",6500);
+                    selectElement("demoTargetcell1","targetcell",6500);
+                    // 5. move hand by side and show info div
+                    moveDemohand(55,45,"demoHand1",2000,6500,showInfo("infoBalloon","Rückgängig machen: Tippen Sie den Baustein an und drücken Sie auf 'Löschen'","visible",8500));
+                    // 6. hide info div
+                    showInfo("infoBalloon","","hidden",10500);
+                    // 7. select wrong target cell again
+                    moveDemohand(55,75,"demoHand1",2000,11000,selectElement("demoTargetcell1","selectedTile",13100));
+                    // 8. remove wrong slided brick
+                    moveDemohand(90,40,"demoHand1",2000,14000,simulateClick("deleteBtn1",500,16500,removeBrickFrom("demoTargetcell1",18000)));
+                    // 9. deselect target cell
+                    selectElement("demoTargetcell1","targetcell",18000);
+                    // 10. select right brick
+                    moveDemohand(15,20,"demoHand1",2000,18500,selectElement("demoBrick2","selectedTile",20600));
+                    // 11. select its right target cell
+                    moveDemohand(55,75,"demoHand1",2000,21000,selectElement("demoTargetcell1","selectedTile",23100));
+                    // 12. clone brick to cell
+                    cloneImageTo("demoBrick2","demoTargetcell1",23500);
+                    // 13. deselect brick and cell
+                    selectElement("demoBrick2","origFieldDemo",23500);
+                    selectElement("demoTargetcell1","targetcell",23500);
+                    // 14. select further brick
+                     moveDemohand(15,40,"demoHand1",2000,24000,selectElement("demoBrick1","selectedTile",26100));
+                     // 15. select its further cell
+                     moveDemohand(55,85,"demoHand1",2000,27000,selectElement("demoTargetcell2","selectedTile",29100));
+                     // 16. clone image to cell
+                     cloneImageTo("demoBrick1","demoTargetcell2",30000);
+                     // 17. deselect brick and cell
+                    selectElement("demoBrick1","origFieldDemo",30000);
+                    selectElement("demoTargetcell2","targetcell",30000);
+                    // 18. show instruction
+                    showInfo("infoBalloon","Wenn Sie fertig sind, drücken Sie auf 'Weiter'","visible",30500);
+                    // 19. hide instruction 
+                    showInfo("infoBalloon","","hidden",31500);
+                    // 20. move hand to OK button
+                    moveDemohand(90,55,"demoHand1",2000,33000,simulateClick("okBtn1",500,35000,goToPage("forwardPage",36000)));
+                                   
+
+                });
+            </script>
+
+        </div>
+        
+        
+        
+        <!--forwarding page to start the task-->
+        <div data-role="page" id="forwardPage" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+                        Nun sind Sie an der Reihe. Starten Sie mit der Aufgabe
+
+                    </p>
+                </center>
+
+
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick=""/>
+
+
+
+            </div>
+
+
+        </div> 
+
+
+    </body>
+
+
+
+</html>
