@@ -85,6 +85,30 @@
 
     }
     
+     .taskEndText{
+        font-size: 52px;
+        color: black;
+        text-shadow: none;
+        text-align: center;
+        font-weight: bold;  
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        right: 10%;
+    }
+    
+     .hintTextBig{
+        font-size: 60px;
+        color: black;
+        text-shadow: none;
+        text-align: center;
+        font-weight: bold;  
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        right: 10%;
+    }
+    
     .infoDiv{
         width:600px;
         height:300px;
@@ -159,17 +183,7 @@
         min-height:100%;
     }
 
-    .taskEndText{
-        font-size: 37px;
-        color: black;
-        text-shadow: none;
-        text-align: center;
-        font-weight: bold;  
-        position: absolute;
-        top: 50%;
-        left: 10%;
-        right: 10%;
-    }
+    
 
     .messageHintText{
         font-size: 32px;
