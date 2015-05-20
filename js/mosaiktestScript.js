@@ -77,14 +77,10 @@ var canDeleteTask14 = false;
 var readyToDeletePicIdTask14 = null;
 var selectedPicIdTask14 = null;
 
-var picSelectedTask15 = false;
-var canDeleteTask15 = false;
-var readyToDeletePicIdTask15 = null;
-var selectedPicIdTask15 = null;
 
 
-var selectBeforeDeleteHint = "Sie müssen zuerst eine Figur rechts auswählen!";
-var fillBeforeContinueHint = "Füllen Sie bitte vorher alle Felder mit den Figuren oben!";
+var selectBeforeDeleteHint = "Bitte wählen Sie erst einen Baustein aus und drücken Sie dann auf 'Löschen'!";
+var fillBeforeContinueHint = "Bitte vervollständigen Sie zuerst das Bild!";
 var infoDivDelay = 1000;
 
 
@@ -225,8 +221,8 @@ function selectTargetTask1(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask1).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask1).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask1).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -251,8 +247,10 @@ function selectTargetTask1(clickedField, targetsTable) {
                     var id = allTds[i].id;
 
                     if (id !== clickedFieldId) {
-
+                      if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -305,7 +303,7 @@ function deleteSelectedPicTask1() {
             // remove image from field
             $("#" + readyToDeletePicIdTask1).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask1).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask1).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask1 = null;
@@ -349,10 +347,10 @@ function switchToTask2() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask1").html(fillBeforeContinueHint);
             $("#infoDivTask1").css("visibility", "visible");
             // hide info div after delay
@@ -361,7 +359,7 @@ function switchToTask2() {
                 $("#infoDivTask1").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -468,8 +466,8 @@ function selectTargetTask2(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask2).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask2).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask2).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -495,7 +493,10 @@ function selectTargetTask2(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -548,7 +549,7 @@ function deleteSelectedPicTask2() {
             // remove image from field
             $("#" + readyToDeletePicIdTask2).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask2).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask2).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask2 = null;
@@ -581,7 +582,7 @@ function switchToTask3() {
     try
     {
         if (canForwardToNext) {
-            
+
             // show gained bricks page
             $.mobile.changePage('#got2BricksPage', {transition: "flip"});
 
@@ -595,10 +596,10 @@ function switchToTask3() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask2").html(fillBeforeContinueHint);
             $("#infoDivTask2").css("visibility", "visible");
             // hide info div after delay
@@ -607,7 +608,7 @@ function switchToTask3() {
                 $("#infoDivTask2").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -713,8 +714,8 @@ function selectTargetTask3(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask3).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask3).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask3).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -740,7 +741,10 @@ function selectTargetTask3(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -793,7 +797,7 @@ function deleteSelectedPicTask3() {
             // remove image from field
             $("#" + readyToDeletePicIdTask3).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask3).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask3).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask3 = null;
@@ -837,10 +841,10 @@ function switchToTask4() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask3").html(fillBeforeContinueHint);
             $("#infoDivTask3").css("visibility", "visible");
             // hide info div after delay
@@ -849,7 +853,7 @@ function switchToTask4() {
                 $("#infoDivTask3").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -955,8 +959,8 @@ function selectTargetTask4(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask4).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask4).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask4).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -982,7 +986,10 @@ function selectTargetTask4(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -1035,7 +1042,7 @@ function deleteSelectedPicTask4() {
             // remove image from field
             $("#" + readyToDeletePicIdTask4).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask4).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask4).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask4 = null;
@@ -1079,10 +1086,10 @@ function switchToTask5() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask4").html(fillBeforeContinueHint);
             $("#infoDivTask4").css("visibility", "visible");
             // hide info div after delay
@@ -1091,7 +1098,7 @@ function switchToTask5() {
                 $("#infoDivTask4").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -1198,8 +1205,8 @@ function selectTargetTask5(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask5).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask5).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask5).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -1225,7 +1232,10 @@ function selectTargetTask5(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -1278,7 +1288,7 @@ function deleteSelectedPicTask5() {
             // remove image from field
             $("#" + readyToDeletePicIdTask5).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask5).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask5).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask5 = null;
@@ -1311,8 +1321,8 @@ function switchToTask6() {
     try
     {
         if (canForwardToNext) {
-            
-            
+
+
             setTimeout(function () {
 
                 $.mobile.changePage('#task6', {transition: "flip"});
@@ -1323,10 +1333,10 @@ function switchToTask6() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask5").html(fillBeforeContinueHint);
             $("#infoDivTask5").css("visibility", "visible");
             // hide info div after delay
@@ -1335,7 +1345,7 @@ function switchToTask6() {
                 $("#infoDivTask5").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -1442,8 +1452,8 @@ function selectTargetTask6(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask6).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask6).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask6).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -1469,7 +1479,10 @@ function selectTargetTask6(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -1522,7 +1535,7 @@ function deleteSelectedPicTask6() {
             // remove image from field
             $("#" + readyToDeletePicIdTask6).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask6).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask6).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask6 = null;
@@ -1555,10 +1568,10 @@ function switchToTask7() {
     try
     {
         if (canForwardToNext) {
-            
+
             // show gained bricks page
             $.mobile.changePage('#got4BricksPage', {transition: "flip"});
-            
+
             setTimeout(function () {
 
                 $.mobile.changePage('#task7', {transition: "flip"});
@@ -1569,10 +1582,10 @@ function switchToTask7() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask6").html(fillBeforeContinueHint);
             $("#infoDivTask6").css("visibility", "visible");
             // hide info div after delay
@@ -1581,7 +1594,7 @@ function switchToTask7() {
                 $("#infoDivTask6").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -1687,8 +1700,8 @@ function selectTargetTask7(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask7).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask7).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask7).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -1714,7 +1727,10 @@ function selectTargetTask7(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -1767,7 +1783,7 @@ function deleteSelectedPicTask7() {
             // remove image from field
             $("#" + readyToDeletePicIdTask7).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask7).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask7).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask7 = null;
@@ -1800,8 +1816,8 @@ function switchToTask8() {
     try
     {
         if (canForwardToNext) {
-            
-            
+
+
             setTimeout(function () {
 
                 $.mobile.changePage('#task8', {transition: "flip"});
@@ -1812,10 +1828,10 @@ function switchToTask8() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask7").html(fillBeforeContinueHint);
             $("#infoDivTask7").css("visibility", "visible");
             // hide info div after delay
@@ -1824,7 +1840,7 @@ function switchToTask8() {
                 $("#infoDivTask7").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -1930,8 +1946,8 @@ function selectTargetTask8(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask8).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask8).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask8).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -1957,7 +1973,10 @@ function selectTargetTask8(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -2010,7 +2029,7 @@ function deleteSelectedPicTask8() {
             // remove image from field
             $("#" + readyToDeletePicIdTask8).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask8).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask8).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask8 = null;
@@ -2043,8 +2062,8 @@ function switchToTask9() {
     try
     {
         if (canForwardToNext) {
-            
-            
+
+
             setTimeout(function () {
 
                 $.mobile.changePage('#task9', {transition: "flip"});
@@ -2055,10 +2074,10 @@ function switchToTask9() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask8").html(fillBeforeContinueHint);
             $("#infoDivTask8").css("visibility", "visible");
             // hide info div after delay
@@ -2067,7 +2086,7 @@ function switchToTask9() {
                 $("#infoDivTask8").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -2173,8 +2192,8 @@ function selectTargetTask9(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask9).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask9).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask9).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -2200,7 +2219,10 @@ function selectTargetTask9(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -2253,7 +2275,7 @@ function deleteSelectedPicTask9() {
             // remove image from field
             $("#" + readyToDeletePicIdTask9).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask9).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask9).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask9 = null;
@@ -2286,8 +2308,8 @@ function switchToTask10() {
     try
     {
         if (canForwardToNext) {
-            
-            
+
+
             setTimeout(function () {
 
                 $.mobile.changePage('#task10', {transition: "flip"});
@@ -2298,10 +2320,10 @@ function switchToTask10() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask9").html(fillBeforeContinueHint);
             $("#infoDivTask9").css("visibility", "visible");
             // hide info div after delay
@@ -2310,7 +2332,7 @@ function switchToTask10() {
                 $("#infoDivTask9").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -2416,8 +2438,8 @@ function selectTargetTask10(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask10).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask10).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask10).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -2443,7 +2465,10 @@ function selectTargetTask10(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -2496,7 +2521,7 @@ function deleteSelectedPicTask10() {
             // remove image from field
             $("#" + readyToDeletePicIdTask10).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask10).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask10).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask10 = null;
@@ -2529,8 +2554,8 @@ function switchToTask11() {
     try
     {
         if (canForwardToNext) {
-            
-            
+
+
             setTimeout(function () {
 
                 $.mobile.changePage('#task11', {transition: "flip"});
@@ -2541,10 +2566,10 @@ function switchToTask11() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask10").html(fillBeforeContinueHint);
             $("#infoDivTask10").css("visibility", "visible");
             // hide info div after delay
@@ -2553,7 +2578,7 @@ function switchToTask11() {
                 $("#infoDivTask10").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -2659,8 +2684,8 @@ function selectTargetTask11(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask11).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask11).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask11).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -2686,7 +2711,10 @@ function selectTargetTask11(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -2739,7 +2767,7 @@ function deleteSelectedPicTask11() {
             // remove image from field
             $("#" + readyToDeletePicIdTask11).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask11).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask11).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask11 = null;
@@ -2772,8 +2800,8 @@ function switchToTask12() {
     try
     {
         if (canForwardToNext) {
-            
-            
+
+
             setTimeout(function () {
 
                 $.mobile.changePage('#task12', {transition: "flip"});
@@ -2784,10 +2812,10 @@ function switchToTask12() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask11").html(fillBeforeContinueHint);
             $("#infoDivTask11").css("visibility", "visible");
             // hide info div after delay
@@ -2796,7 +2824,7 @@ function switchToTask12() {
                 $("#infoDivTask11").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -2902,8 +2930,8 @@ function selectTargetTask12(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask12).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask12).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask12).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -2929,7 +2957,10 @@ function selectTargetTask12(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -2982,7 +3013,7 @@ function deleteSelectedPicTask12() {
             // remove image from field
             $("#" + readyToDeletePicIdTask12).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask12).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask12).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask12 = null;
@@ -3015,8 +3046,8 @@ function switchToTask13() {
     try
     {
         if (canForwardToNext) {
-            
-            
+
+
             setTimeout(function () {
 
                 $.mobile.changePage('#task13', {transition: "flip"});
@@ -3027,10 +3058,10 @@ function switchToTask13() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask12").html(fillBeforeContinueHint);
             $("#infoDivTask12").css("visibility", "visible");
             // hide info div after delay
@@ -3039,7 +3070,7 @@ function switchToTask13() {
                 $("#infoDivTask12").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -3145,8 +3176,8 @@ function selectTargetTask13(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask13).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask13).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask13).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -3172,7 +3203,10 @@ function selectTargetTask13(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -3225,7 +3259,7 @@ function deleteSelectedPicTask13() {
             // remove image from field
             $("#" + readyToDeletePicIdTask13).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask13).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask13).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask13 = null;
@@ -3258,8 +3292,8 @@ function switchToTask14() {
     try
     {
         if (canForwardToNext) {
-            
-            
+
+
             setTimeout(function () {
 
                 $.mobile.changePage('#task14', {transition: "flip"});
@@ -3270,10 +3304,10 @@ function switchToTask14() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask13").html(fillBeforeContinueHint);
             $("#infoDivTask13").css("visibility", "visible");
             // hide info div after delay
@@ -3282,7 +3316,7 @@ function switchToTask14() {
                 $("#infoDivTask13").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
@@ -3388,8 +3422,8 @@ function selectTargetTask14(clickedField, targetsTable) {
                     $("#" + selectedPicIdTask14).children('img').clone().appendTo("#" + clickedFieldId);
 
                     // remove highlighting from selected pic and target field
-                    $("#" + selectedPicIdTask14).attr("class", "fieldBorder");
-                    $("#" + clickedFieldId).attr("class", "fieldBorder");
+                    $("#" + selectedPicIdTask14).attr("class", "origFieldDemo");
+                    $("#" + clickedFieldId).attr("class", "origFieldDemo");
 
                     // show correction hint
 
@@ -3415,7 +3449,10 @@ function selectTargetTask14(clickedField, targetsTable) {
 
                     if (id !== clickedFieldId) {
 
+                        if($("#" + id).children('img').length > 0)
                         $('#' + id).attr('class', 'origFieldDemo');
+                    else
+                       $('#' + id).attr('class', 'targetcell'); 
                     }
 
                 }
@@ -3468,7 +3505,7 @@ function deleteSelectedPicTask14() {
             // remove image from field
             $("#" + readyToDeletePicIdTask14).children('img').remove();
             // deselect field
-            $("#" + readyToDeletePicIdTask14).attr("class", "origFieldDemo");
+            $("#" + readyToDeletePicIdTask14).attr("class", "targetcell");
 
             willCorrect = false;
             readyToDeletePicIdTask14 = null;
@@ -3501,8 +3538,8 @@ function showEndPage() {
     try
     {
         if (canForwardToNext) {
-            
-            
+
+
             setTimeout(function () {
 
                 $.mobile.changePage('#endPage', {transition: "flip"});
@@ -3513,10 +3550,10 @@ function showEndPage() {
             willCorrect = false;
 
         }
-        
+
         else
         {
-            
+
             $("#infoDivTask14").html(fillBeforeContinueHint);
             $("#infoDivTask14").css("visibility", "visible");
             // hide info div after delay
@@ -3525,7 +3562,7 @@ function showEndPage() {
                 $("#infoDivTask14").css("visibility", "hidden");
 
             }, infoDivDelay);
-            
+
         }
 
     }
