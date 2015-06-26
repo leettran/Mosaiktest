@@ -697,9 +697,9 @@ This html page should contain the whole process of this task as a collection of 
 
 
                                 // 1. move hand to brick
-                                moveDemohand(15, 40, "demoHand1", 2000, 1000, selectElement("demoBrick1", "selectedTile", 3100));
+                                moveDemohand(10, 40, "demoHand1", 2000, 1000, selectElement("demoBrick1", "selectedTile", 3100));
                                 // 2. move hand to wrong terget cell
-                                moveDemohand(55, 75, "demoHand1", 2000, 4000, selectElement("demoTargetcell1", "selectedTile", 6100));
+                                moveDemohand(55, 80, "demoHand1", 2000, 4000, selectElement("demoTargetcell1", "selectedTile", 6100));
                                 // 3. clone image to wrong cell
                                 cloneImageTo("demoBrick1", "demoTargetcell1", 6500);
                                 // 4. deselect brick and cell
@@ -710,24 +710,24 @@ This html page should contain the whole process of this task as a collection of 
                                 // 6. hide info div
                                 showInfo("infoBalloon", "", "hidden", 10500);
                                 // 7. select wrong target cell again
-                                moveDemohand(55, 75, "demoHand1", 2000, 11000, selectElement("demoTargetcell1", "selectedTile", 13100));
+                                moveDemohand(55, 80, "demoHand1", 2000, 11000, selectElement("demoTargetcell1", "selectedTile", 13100));
                                 // 8. remove wrong slided brick
                                 moveDemohand(90, 40, "demoHand1", 2000, 14000, simulateClick("deleteBtn1", 500, 16500, removeBrickFrom("demoTargetcell1", 18000)));
                                 // 9. deselect target cell
                                 selectElement("demoTargetcell1", "targetcell", 18000);
                                 // 10. select right brick
-                                moveDemohand(15, 20, "demoHand1", 2000, 18500, selectElement("demoBrick2", "selectedTile", 20600));
+                                moveDemohand(10, 30, "demoHand1", 2000, 18500, selectElement("demoBrick2", "selectedTile", 20600));
                                 // 11. select its right target cell
-                                moveDemohand(55, 75, "demoHand1", 2000, 21000, selectElement("demoTargetcell1", "selectedTile", 23100));
+                                moveDemohand(55, 80, "demoHand1", 2000, 21000, selectElement("demoTargetcell1", "selectedTile", 23100));
                                 // 12. clone brick to cell
                                 cloneImageTo("demoBrick2", "demoTargetcell1", 23500);
                                 // 13. deselect brick and cell
                                 selectElement("demoBrick2", "origFieldDemo", 23500);
                                 selectElement("demoTargetcell1", "targetcell", 23500);
                                 // 14. select further brick
-                                moveDemohand(15, 40, "demoHand1", 2000, 24000, selectElement("demoBrick1", "selectedTile", 26100));
+                                moveDemohand(10, 40, "demoHand1", 2000, 24000, selectElement("demoBrick1", "selectedTile", 26100));
                                 // 15. select its further cell
-                                moveDemohand(55, 85, "demoHand1", 2000, 27000, selectElement("demoTargetcell2", "selectedTile", 29100));
+                                moveDemohand(55, 90, "demoHand1", 2000, 27000, selectElement("demoTargetcell2", "selectedTile", 29100));
                                 // 16. clone image to cell
                                 cloneImageTo("demoBrick1", "demoTargetcell2", 30000);
                                 // 17. deselect brick and cell
